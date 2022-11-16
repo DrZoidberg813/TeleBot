@@ -1,8 +1,9 @@
 import telebot
 import requests
 
-with open("token.txt", "r") as f:
-    bot = telebot.TeleBot(f.readline())
+
+with open("resourses/token.txt", "r") as f:
+    bot = telebot.TeleBot(f.read().strip())
 
 
 class ApiHandler:
@@ -28,4 +29,4 @@ class TelegramBot:
     @bot.message_handler(content_types=["text"])
     def message_handler_values(message: telebot.types.Message):
         base, quote, amount = map(str, message.text.split())
-        bot.send_message(message.chat.id, ex.ApiHandler.get_price(base, quote, amount))
+        bot.send_message(message.chat.id, f"{ApiHandler.get_price(base, quote, amount)}")
