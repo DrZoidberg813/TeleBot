@@ -1,8 +1,8 @@
-import extensions as ex
+from extensions import StartBot
 
 
 def main():
-    ex.bot.polling(none_stop=True)
+    StartBot.bot.polling(none_stop=True)
 
 
 if __name__ == "__main__":
